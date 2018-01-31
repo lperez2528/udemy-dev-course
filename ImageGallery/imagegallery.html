@@ -4,13 +4,12 @@
 <head>
   <title>Image Gallery</title>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="imagegallery.css">
 </head>
 
 <body>
   <!-- BEGIN NAV BAR -->
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo" aria-expanded="false">
@@ -19,7 +18,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="#" class="navbar-brand">IMGS</a>
+        <a href="#" class="navbar-brand"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> IMGS</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-nav-demo">
         <ul class="nav navbar-nav">
@@ -37,24 +36,64 @@
   <!-- BEGIN JUMBOTRON -->
   <div class="container">
     <div class="jumbotron">
-      <h1>The Image Gallery</h1>
+      <h1><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> The Image Gallery</h1>
       <p>A bunch of beautiful images</p>
     </div>
     <!-- END JUMBOTRON -->
     <!-- BEGIN GALLERY -->
     <div class="row">
-      <div class="col-lg-4">
-        lakdna
+      <div class="col-lg-4 col-sm-6">
+        <div class="thumbnail">
+          <img src="http://i.imgur.com/qK42fUu.jpg">
+        </div>
       </div>
-      <div class="col-lg-4">
-        lakdna
+      <div class="col-lg-4 col-sm-6">
+        <div class="thumbnail">
+          <img src="http://i.imgur.com/qK42fUu.jpg">
+        </div>
       </div>
-      <div class="col-lg-4">
-        lakdna
+      <div class="col-lg-4 col-sm-6">
+        <div class="thumbnail">
+          <img src="http://i.imgur.com/qK42fUu.jpg">
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-lg-4 col-sm-6">
+        <div class="thumbnail">
+          <img src="http://i.imgur.com/qK42fUu.jpg">
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <div class="thumbnail">
+          <img src="http://i.imgur.com/qK42fUu.jpg">
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <div class="thumbnail">
+          <img src="http://i.imgur.com/qK42fUu.jpg">
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-lg-4 col-sm-6">
+        <div class="thumbnail">
+          <img src="http://i.imgur.com/qK42fUu.jpg">
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <div class="thumbnail">
+          <img src="http://i.imgur.com/qK42fUu.jpg">
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <div class="thumbnail">
+          <img src="http://i.imgur.com/qK42fUu.jpg">
+        </div>
       </div>
     </div>
   </div>
   <!-- ENG GALLERY -->
+  <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 
 </html>
