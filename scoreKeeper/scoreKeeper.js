@@ -1,14 +1,14 @@
-var p1Button = document.querySelector("#p1")
-var p2Button = document.querySelector("#p2")
-var p1Display = document.querySelector("#p1Display")
-var p2Display = document.querySelector("#p2Display")
-var p1Score = 0
-var p2Score = 0
-var gameOver = false
-var winningScore = 5
-// var winningScore = document.querySelector("#winningScore")
-
-var reset = document.querySelector("#reset")
+var p1Button = document.querySelector("#p1");
+var p2Button = document.querySelector("#p2");
+var p1Display = document.querySelector("#p1Display");
+var p2Display = document.querySelector("#p2Display");
+var p1Score = 0;
+var p2Score = 0;
+var gameOver = false;
+var winningScore = 5;
+var numInput = document.querySelector("input");
+var resetButton = document.querySelector("#reset");
+var winningScoreDisplay = document.querySelector("p span")
 
 p1Button.addEventListener("click", function() {
   if (!gameOver) {
@@ -33,12 +33,26 @@ p2Button.addEventListener("click", function() {
   }
 });
 
-reset.addEventListener("click", function() {
-  p1Score = 0
-  p2Score = 0
-  p1Display.textContent = 0
-  p2Display.textContent = 0
-  p1Display.classList.remove("winner")
-  p2Display.classList.remove("winner")
-  gameOver = false
-})
+resetButton.addEventListener("click", reset)
+
+numInput.addEventListener("input", function() {
+  winningScoreDisplay.textContent = this.value;
+  winningScore = Number(this.value);
+  reset();
+});
+
+
+function reset(){
+  p1Score = 0;
+  p2Score = 0;
+  p1Display.textContent = 0;
+  p2Display.textContent = 0;
+  p1Display.classList.remove("winner");
+  p2Display.classList.remove("winner");
+  gameOver = false;
+}
+
+
+
+
+
