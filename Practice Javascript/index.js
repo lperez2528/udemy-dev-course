@@ -160,16 +160,16 @@
 //   }
 // }
 
-// // Is Uniform Function
-// function isUniform(arr) {
-//   var first = arr[0]
-//   for(var i = 1; i < arr.length; i++) {
-//     if(first !== i) {
-//       return false
-//     };
-//   };
-//   return true
-// };
+// Is Uniform Function
+function isUniform(arr) {
+  var first = arr[0]
+  for(var i = 1; i < arr.length; i++) {
+    if(first !== i) {
+      return false
+    };
+  };
+  return true
+};
 
 // // Sum Array Function
 // function sumArray(arr) {
@@ -228,12 +228,39 @@
 //    console.log(result)
 // });
 
+// var lis = document.querySelectorAll("li");
 
+var h1 = document.querySelector("h1")
+// h1.addEventListener("mouseenter", function(){
+//     if(this.style.background != 'purple'){
+//       this.style.background = 'purple';
+//     } else {
+//       this.style.background = 'white';
+//     }
+// });
 
+// for(var i = 0; i < lis.length; i++){
+//   lis[i].addEventListener("mouseenter", changeBackground)
+// }
 
+// function changeBackground() {
+//   for(var i = 0; i < lis.length; i++){
+//     if(this.style.background != "pink"){
+//       this.style.background = "pink"
+//       this.style.padding = "30px"
+//     } else {
+//       this.style.background = "white"
+//       this.style.padding = "0px"
 
+//     }
+//   }
+// }
 
+button = document.querySelector("button")
 
+button.addEventListener("click", function(){
+  document.body.classList.toggle('purple')
+})
 
 
 
