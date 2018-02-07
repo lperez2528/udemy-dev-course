@@ -6,52 +6,68 @@ var colorDisplay = document.querySelector("#colorDisplay");
 var messageDisplay = document.querySelector("#message");
 var h1 = document.querySelector("h1");
 var resetButton = document.querySelector("#reset");
-var easyButton = document.querySelector("#easyBtn")
-var hardButton = document.querySelector("#hardBtn")
+var modeButtons = document.querySelectorAll(".mode")
 
-// Easy mode with 3 color squares
-easyBtn.addEventListener("click", function(){
-	easyBtn.classList.add("selected");
-	hardBtn.classList.remove("selected");
-	numSquares = 3;
-	colors = generateRandomColors(numSquares);
-  pickedColor = pickColor();
-  colorDisplay.textContent = pickedColor;
-  for(var i = 0; i < squares.length; i++) {
-  	if(colors[i]) {
-  		squares[i].style.backgroundColor = colors[i]
-  	} else {
-  		squares[i].style.display = "none"
-  	}
-  };
-});
+for (var i = 0; i < modeButtons.length; i++) {
+  modeButtons[i].addEventListener("click", function() {
+    modeButtons[0].classList.remove("selected")
+    modeButtons[1].classList.remove("selected")
+    this.classList.add("selected")
+    this.textContent === "Easy" ? numSquares = 3 : numSquares = 6;
+    reset();
+  });
+};
 
-// Hard mode with 6 color squares
-hardBtn.addEventListener("click", function(){
-	easyBtn.classList.remove("selected");
-	hardBtn.classList.add("selected");
-	numSquares = 6;
-	colors = generateRandomColors(numSquares);
-  pickedColor = pickColor();
-  colorDisplay.textContent = pickedColor;
-	for(var i = 0; i < squares.length; i++) {
-  	squares[i].style.backgroundColor = colors[i]
-  	squares[i].style.display = "block"
-  };
-});
-
-// Code to run when New Colors / Play Again button is clicked
-resetButton.addEventListener("click", function() {
+function reset() {
   colors = generateRandomColors(numSquares);
   pickedColor = pickColor();
   colorDisplay.textContent = pickedColor;
-	h1.style.backgroundColor = "steelblue"
+  h1.style.backgroundColor = "steelblue"
+  messageDisplay.textContent = "";
+  resetButton.textContent = "New Colors";
   for (var i = 0; i < squares.length; i++) {
+  	if(colors[i]) {
+  		squares[i].style.display = "block"
+   		squares[i].style.backgroundColor = colors[i]
+   	} else {
+   		squares[i].style.display = "none"
+   	}
     squares[i].style.backgroundColor = colors[i];
   };
-  messageDisplay.textContent = "";
-  this.textContent = "New Colors";
-});
+};
+// // Easy mode with 3 color squares
+// easyBtn.addEventListener("click", function(){
+// 	easyBtn.classList.add("selected");
+// 	hardBtn.classList.remove("selected");
+// 	numSquares = 3;
+// 	colors = generateRandomColors(numSquares);
+//   pickedColor = pickColor();
+//   colorDisplay.textContent = pickedColor;
+//   for(var i = 0; i < squares.length; i++) {
+//   	if(colors[i]) {
+//   		squares[i].style.backgroundColor = colors[i]
+//   	} else {
+//   		squares[i].style.display = "none"
+//   	}
+//   };
+// });
+
+// // Hard mode with 6 color squares
+// hardBtn.addEventListener("click", function(){
+// 	easyBtn.classList.remove("selected");
+// 	hardBtn.classList.add("selected");
+// 	numSquares = 6;
+// 	colors = generateRandomColors(numSquares);
+//   pickedColor = pickColor();
+//   colorDisplay.textContent = pickedColor;
+// 	for(var i = 0; i < squares.length; i++) {
+//   	squares[i].style.backgroundColor = colors[i]
+//   	squares[i].style.display = "block"
+//   };
+// });
+
+// Code to run when New Colors / Play Again button is clicked
+resetButton.addEventListener("click", reset)
 
 // Shows RGB color in H1
 colorDisplay.textContent = pickedColor
@@ -103,10 +119,3 @@ function randomColor() {
   var b = Math.floor(Math.random() * 256);
   return "rgb(" + r + ", " + g + ", " + b + ")"
 }
-
-
-
-
-
-
-
