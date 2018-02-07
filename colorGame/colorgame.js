@@ -40,15 +40,17 @@ hardBtn.addEventListener("click", function(){
   };
 });
 
-// Code to run when New Colors button is clicked
+// Code to run when New Colors / Play Again button is clicked
 resetButton.addEventListener("click", function() {
   colors = generateRandomColors(numSquares);
   pickedColor = pickColor();
   colorDisplay.textContent = pickedColor;
-	h1.style.backgroundColor = "#232323"
+	h1.style.backgroundColor = "steelblue"
   for (var i = 0; i < squares.length; i++) {
     squares[i].style.backgroundColor = colors[i];
   };
+  messageDisplay.textContent = "";
+  this.textContent = "New Colors";
 });
 
 // Shows RGB color in H1
