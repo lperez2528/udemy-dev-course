@@ -1,14 +1,48 @@
-var colors = generateRandomColors(6);
+var numSquares = 6
+var colors = generateRandomColors(numSquares);
 var squares = document.querySelectorAll(".square");
 var pickedColor = pickColor();
 var colorDisplay = document.querySelector("#colorDisplay");
 var messageDisplay = document.querySelector("#message");
 var h1 = document.querySelector("h1");
 var resetButton = document.querySelector("#reset");
+var easyButton = document.querySelector("#easyBtn")
+var hardButton = document.querySelector("#hardBtn")
+
+// Easy mode with 3 color squares
+easyBtn.addEventListener("click", function(){
+	easyBtn.classList.add("selected");
+	hardBtn.classList.remove("selected");
+	numSquares = 3;
+	colors = generateRandomColors(numSquares);
+  pickedColor = pickColor();
+  colorDisplay.textContent = pickedColor;
+  for(var i = 0; i < squares.length; i++) {
+  	if(colors[i]) {
+  		squares[i].style.backgroundColor = colors[i]
+  	} else {
+  		squares[i].style.display = "none"
+  	}
+  };
+});
+
+// Hard mode with 6 color squares
+hardBtn.addEventListener("click", function(){
+	easyBtn.classList.remove("selected");
+	hardBtn.classList.add("selected");
+	numSquares = 6;
+	colors = generateRandomColors(numSquares);
+  pickedColor = pickColor();
+  colorDisplay.textContent = pickedColor;
+	for(var i = 0; i < squares.length; i++) {
+  	squares[i].style.backgroundColor = colors[i]
+  	squares[i].style.display = "block"
+  };
+});
 
 // Code to run when New Colors button is clicked
 resetButton.addEventListener("click", function() {
-  colors = generateRandomColors(6);
+  colors = generateRandomColors(numSquares);
   pickedColor = pickColor();
   colorDisplay.textContent = pickedColor;
 	h1.style.backgroundColor = "#232323"
@@ -67,3 +101,10 @@ function randomColor() {
   var b = Math.floor(Math.random() * 256);
   return "rgb(" + r + ", " + g + ", " + b + ")"
 }
+
+
+
+
+
+
+
