@@ -11,33 +11,8 @@ var modeButtons = document.querySelectorAll(".mode")
 init();
 
 function init() {
-	// Sets difficulty to Easy or Hard
-  for (var i = 0; i < modeButtons.length; i++) {
-    modeButtons[i].addEventListener("click", function() {
-      modeButtons[0].classList.remove("selected")
-      modeButtons[1].classList.remove("selected")
-      this.classList.add("selected")
-      this.textContent === "Easy" ? numSquares = 3 : numSquares = 6;
-      reset();
-    });
-  };
-
-	// Main logic for determining if clicked color is correct
-  for (var i = 0; i < squares.length; i++) {
-    squares[i].addEventListener("click", function() {
-      var clickedColor = this.style.backgroundColor;
-      if (clickedColor === pickedColor) {
-        messageDisplay.textContent = "Correct!";
-        resetButton.textContent = "Play Again?"
-        changeColors(clickedColor);
-        h1.style.backgroundColor = clickedColor;
-        
-      } else {
-        this.style.backgroundColor = "#232323";
-        messageDisplay.textContent = "Try Again";
-      }
-    });
-  };
+  setUpModeButtons();
+  setUpSquares();
   reset();
 };
 
@@ -65,6 +40,38 @@ function reset() {
     squares[i].style.backgroundColor = colors[i];
   };
 };
+
+// Sets difficulty to Easy or Hard
+function setUpModeButtons() {
+  for (var i = 0; i < modeButtons.length; i++) {
+    modeButtons[i].addEventListener("click", function() {
+      modeButtons[0].classList.remove("selected")
+      modeButtons[1].classList.remove("selected")
+      this.classList.add("selected")
+      this.textContent === "Easy" ? numSquares = 3 : numSquares = 6;
+      reset();
+    });
+  };
+}
+
+ // Main logic for determining if clicked color is correct
+function setUpSquares() {
+  for (var i = 0; i < squares.length; i++) {
+    squares[i].addEventListener("click", function() {
+      var clickedColor = this.style.backgroundColor;
+      if (clickedColor === pickedColor) {
+        messageDisplay.textContent = "Correct!";
+        resetButton.textContent = "Play Again?"
+        changeColors(clickedColor);
+        h1.style.backgroundColor = clickedColor;
+
+      } else {
+        this.style.backgroundColor = "#232323";
+        messageDisplay.textContent = "Try Again";
+      }
+    });
+  };
+}
 
 // Changed all colors to correct color 
 function changeColors(color) {
